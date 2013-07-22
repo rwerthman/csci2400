@@ -1,7 +1,7 @@
 // 
 // tsh - A tiny shell program with job control
 // 
-// Robert Werthman rowe7280
+// 
 //
 
 using namespace std;
