@@ -1,0 +1,25 @@
+
+int bitNor(int, int);
+int test_bitNor(int, int);
+int minusOne();
+int test_minusOne();
+int evenBits();
+int test_evenBits();
+int isEqual(int, int);
+int test_isEqual(int, int);
+int getByte(int, int);
+int test_getByte(int, int);
+int copyLSB(int);
+int test_copyLSB(int);
+int isPositive(int);
+int test_isPositive(int);
+int isLessOrEqual(int, int);
+int test_isLessOrEqual(int, int);
+int isNegative(int);
+int test_isNegative(int);
+int bitMask(int, int);
+int test_bitMask(int, int);
+int abs(int);
+int test_abs(int);
+int logicalNeg(int);
+int test_logicalNeg(int);

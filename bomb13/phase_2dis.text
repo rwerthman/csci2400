@@ -1,0 +1,33 @@
+Dump of assembler code for function phase_2:
+   0x08048ef0 <+0>:	push   %ebp //creating the stack
+   0x08048ef1 <+1>:	mov    %esp,%ebp //moving another register to the beginning of stack
+   0x08048ef3 <+3>:	sub    $0x38,%esp //moving esp down the stack, growing the stack
+=> 0x08048ef6 <+6>:	mov    %ebx,-0xc(%ebp) // moving ebx 12 down stack
+   0x08048ef9 <+9>:	mov    %esi,-0x8(%ebp) //moving esi 8 down stack
+   0x08048efc <+12>:	mov    %edi,-0x4(%ebp) //moving edi 4 down stack
+   0x08048eff <+15>:	lea    -0x24(%ebp),%ebx //ebx equals 24 down from ebp
+   0x08048f02 <+18>:	mov    %ebx,0x4(%esp) //moves ebx into 4 + esp
+   0x08048f06 <+22>:	mov    0x8(%ebp),%eax //moves ebp + 8 into eax
+   0x08048f09 <+25>:	mov    %eax,(%esp)
+   0x08048f0c <+28>:	call   0x8049a8c <read_six_numbers>// checks input for 6 numbers
+   0x08048f11 <+33>:	mov    $0x0,%esi
+   0x08048f16 <+38>:	lea    -0x18(%ebp),%edi //subtract 18 from ebp, put into edi
+   0x08048f19 <+41>:	mov    (%ebx),%eax // move ebx into eax
+   0x08048f1b <+43>:	cmp    0xc(%ebx),%eax //compare [ebx+12] to eax which is my input //turns out this is 4
+   0x08048f1e <+46>:	je     0x8048f25 <phase_2+53> //if equal jump otherwise explode
+   0x08048f20 <+48>:	call   0x8049979 <explode_bomb>
+   0x08048f25 <+53>:	add    (%ebx),%esi
+   0x08048f27 <+55>:	add    $0x4,%ebx //
+   0x08048f2a <+58>:	cmp    %edi,%ebx
+   0x08048f2c <+60>:	jne    0x8048f19 <phase_2+41> //jumps and compares to input, loop if not equal
+   0x08048f2e <+62>:	test   %esi,%esi
+   0x08048f30 <+64>:	jne    0x8048f37 <phase_2+71>
+   0x08048f32 <+66>:	call   0x8049979 <explode_bomb>
+   0x08048f37 <+71>:	mov    -0xc(%ebp),%ebx
+   0x08048f3a <+74>:	mov    -0x8(%ebp),%esi
+   0x08048f3d <+77>:	mov    -0x4(%ebp),%edi
+   0x08048f40 <+80>:	mov    %ebp,%esp
+   0x08048f42 <+82>:	pop    %ebp
+   0x08048f43 <+83>:	ret    
+
+1 same as 4, 2 same as 5, 3 same as 6

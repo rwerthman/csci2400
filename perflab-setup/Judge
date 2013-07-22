@@ -1,0 +1,81 @@
+#!/usr/bin/perl
+#
+##
+## PerfLab judging script from 2011
+##
+## Usage:
+##
+##      Judge [-p program] [-i image] [-v] [-n #]
+##
+## This will run the program N times using the image specified.
+## Reasonable defaults are provide.
+##
+#
+use Getopt::Long;
+
+$image = "blocks-small.bmp";
+$program = "./filter";
+$samples = 6;
+$verbose = 0;
+
+$result = GetOptions("program|p=s" => \$program,
+		     "image|i=s" => \$image,
+		     "n=i" => \$samples,
+		     "v" => \$verbose
+);
+
+if ( ! ($program =~ "\\..*" )) { 
+    $program = "./$program";
+}
+-x $program || die "Unable to find executable program $program\n";
+-f $image || die "Unable to find image $image\n";
+if ( $samples < 4 ) {
+    printf "Warning - you won't get good results with -n $samples\n";
+}
+
+@FILTERS = ("gauss","avg","hline","emboss");
+
+@scores = ();
+
+for my $filter ( @FILTERS ){
+    if ( $verbose ) {
+	print "filter is $filter\n";
+    }
+    $cmd = "$program $filter.filter";
+    for (my $i = 0; $i < $samples; $i++) {
+	$cmd = "$cmd $image";
+    }
+
+    if ( $verbose ) {
+	printf "Run $cmd\n";
+    }
+
+    open(OUTPUT, "$cmd 2>&1 |") || die "Unable to run $cmd\n";
+
+    printf "$filter: ";
+    while (<OUTPUT>) {
+	if (/or ([0-9\.]+) cycles/) {
+	    print $1, "..";
+	    push(@scores, int($1));
+	}
+    }
+    printf "\n";
+    close(OUTPUT);
+}
+@scores = sort { int($a) <=> int($b) } @scores;
+print "Scores are @scores \n";
+$median = int( ($#scores + 1) / 2 );
+$cpe = $scores[$median];
+print "median CPE is ", $cpe, "\n";
+
+if ($cpe > 3000) {
+    $score = 0;
+} else {
+    $score = log($cpe) * -17 + 173;
+    if ($score > 110 ) {
+	$score = 110;
+    }
+}
+$score = int($score);
+
+print "Resulting score is $score\n";
