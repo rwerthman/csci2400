@@ -178,11 +178,11 @@ void eval(char *cmdline)
 			setpgid(0, 0); /*give each child unique process group id */
 			if (execve(argv[0], argv, environ) < 0){ // load and run whatever argv[0] 
 				printf("%s: Command not found.\n", argv[0]);
-				exit(0);
 			}
+			exit(0);
+
 				
 		}
-		else{
 		if (!bg){ //if the job is to be a foreground
 			addjob(jobs, pid, FG, cmdline); /* if fg job, add job to jobs list as FG */
 		}
@@ -193,7 +193,6 @@ void eval(char *cmdline)
 		sigprocmask(SIG_UNBLOCK, &mask, 0); /* unblock SIGCHLD */
 		waitfg(pid);
 
-			}
 	}
 
   return;

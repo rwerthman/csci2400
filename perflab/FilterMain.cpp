@@ -125,17 +125,17 @@ for(int plane = 0; plane < 3; plane++) {
 	
 		//4. urolled two loops so that there would be less overhead over iterations
 			
-	     result = (input -> color[plane][row-1][col-1] * filter1[0][0] )
-		 + (input -> color[plane][row-1][col] * filter1[0][1] )
-		 + (input -> color[plane][row-1][col+1] * filter1[0][2] );
+	     result = (input -> color[plane][row-1][col-1] * filter1[0][0] );
+		 result1 = (input -> color[plane][row-1][col] * filter1[0][1] );
+		 result2 = (input -> color[plane][row-1][col+1] * filter1[0][2] );
 		
-		 result1 = (input -> color[plane][row][col-1] * filter1[1][0] )
-		 + (input -> color[plane][row][col] * filter1[1][1] )
-		 + (input -> color[plane][row][col+1] * filter1[1][2] );
+		 result += (input -> color[plane][row][col-1] * filter1[1][0] );
+		 result1 += (input -> color[plane][row][col] * filter1[1][1] );
+		 result2 += (input -> color[plane][row][col+1] * filter1[1][2] );
 		
-		 result2 = (input -> color[plane][row+1][col-1] * filter1[2][0] )
-		 + (input -> color[plane][row+1][col] * filter1[2][1] )
-		 + (input -> color[plane][row+1][col+1] * filter1[2][2] );
+		 result += (input -> color[plane][row+1][col-1] * filter1[2][0] );
+		 result1 += (input -> color[plane][row+1][col] * filter1[2][1] );
+		 result2 +=(input -> color[plane][row+1][col+1] * filter1[2][2] );
 		 
 		 //5. used three accumulators to hold data and then combined them at the end so computations 
 		 // can be done in parallel
