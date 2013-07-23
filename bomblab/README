@@ -2,4 +2,16 @@ This is bomb 13 for lab ColoradoSummer2013.
 
 It is owned by the following student(s):
 
+Phase1: There was an address with a string that was being compared to the input string.  
+Those needed to be the same.
 
+Phase2:  There were six numbers that needed to be in a specific pattern.
+
+Phase3: This required two numbers and I don't remember what for.
+
+Phase4:  There was a factorial function and stored number.  You need to figure out what number was need so that
+the factorial of that number was equal to the stored number.
+
+Phase5:  This took in a string and had a stored string.  It used ascii binary references to letters to produce a certain string that it was looking for.
+
+Phase6:  This was a linked list.  Each node contained a value based on the integer from the input.  The nodes had to be in a certain order so that the value produced from the integer was greater than the next one. 
