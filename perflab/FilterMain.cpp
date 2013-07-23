@@ -138,7 +138,7 @@ for(int plane = 0; plane < 3; plane++) {
 		 result2 +=(input -> color[plane][row+1][col+1] * filter1[2][2] );
 		 
 		 //5. used three accumulators to hold data and then combined them at the end so computations 
-		 // can be done in parallel
+		 // can be done in parallel and there would be less dependency
 		
 	output -> color[plane][row][col] = result + result1 + result2;
 	
