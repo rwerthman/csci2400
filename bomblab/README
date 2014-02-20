@@ -2,7 +2,7 @@ This is bomb 13 for lab ColoradoSummer2013.
 
 It is owned by the following student(s):
 
-Phase1: There was an address with a string that was being compared to the input string.  
+Phase1: There was an address with a string that was being compared to the input string. 
 Those needed to be the same.
 
 Phase2:  There were six numbers that needed to be in a specific pattern.
@@ -14,4 +14,4 @@ the factorial of that number was equal to the stored number.
 
 Phase5:  This took in a string and had a stored string.  It used ascii binary references to letters to produce a certain string that it was looking for.
 
-Phase6:  This was a linked list.  Each node contained a value based on the integer from the input.  The nodes had to be in a certain order so that the value produced from the integer was greater than the next one. 
+Phase6:  This was a linked list.  Each node contained a hex value.  The nodes had to be in a certain order so that the hex value was in descending order.  Each input integer referenced a specific node so you had to put them in the right order so the nodes were in order.  Find the nodes and test the inputs to see the pattern. 
