@@ -14,4 +14,7 @@ the factorial of that number was equal to the stored number.
 
 Phase5:  This took in a string and had a stored string.  It used ascii binary references to letters to produce a certain string that it was looking for.
 
-Phase6:  This was a linked list.  Each node contained a hex value.  The nodes had to be in a certain order so that the hex value was in descending order.  Each input integer referenced a specific node so you had to put them in the right order so the nodes were in order.  Find the nodes and test the inputs to see the pattern. 
+Phase6:  This was a linked list.  Each node contained a hex value.  
+The nodes had to be in a certain order so that the hex value was in descending order.  
+Each input integer referenced a specific node so you had to put them in the right order so the nodes were in order.  
+Find the nodes and test the inputs to see the pattern. 
